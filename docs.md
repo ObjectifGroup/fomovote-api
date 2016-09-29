@@ -3,6 +3,8 @@ A brief overview of the FOMO.vote API that is currently set up to provide pollin
 
 If you're interested in sending us data from your users, we don't expect you to implement all of these functions. In fact, our own app is likely only going to collect Binary Reports. If you only want to show line estimates, that's okay too! We have one goal and it's to get people out to vote. The more people spreading this information, the better.
 
+Please feel free to report any problems or feedback you have with our API using Github issues linked above.
+
 
 
 ## Opinionated
@@ -82,9 +84,9 @@ The rate at which people enter or exit the polls. Our own implementation of this
 **Note**: We recommend using exit as the count because it's not uncommon for someone to enter the polling station and have to be redirected to resolve an issue with their registration, identification, or similar. 
 
 
-## Polling Location Line Data
+# Polling Location Line Data
 
-While the polls are open (even during early voting), every 5 minutes we will update the following endpoint that you can pull to get line data. If we're able to process data faster than every 5 minutes, we may elect to do so. The endpoint is hosted on Amazon S3, so feel free to not cache it and request it as frequently as you'd like on behalf of your users. (If you'd like to get data over time programmatically, please contact @EdIreson so that you don't make our AWS bill outrageous by requesting it every 5 seconds or something like that.)
+While the polls are open (even during early voting), every 5 minutes we will update the following endpoint that you can pull to get line data. If we're able to process data faster than every 5 minutes, we may elect to do so. 
 
 > https&#58;//v1.data-api.fomo.vote/lines.json
 
@@ -126,7 +128,12 @@ Please check the version number prior to parsing. We won't increment it (or chan
 
 This will be our first attempt at a confidence rating, so we're not sure how useful it is going to be for end users. Feel free to take it into account, but you should expect lots of 0.5 confidence ratings.
 
+## Usage / Limitations
 
+The endpoint is hosted on Amazon S3, so feel free to **not** cache it and request it as frequently as you'd like on behalf of your users. (If you'd like to get data over time programmatically, please contact @EdIreson so that you don't make our AWS bill outrageous by requesting it every 5 seconds or something like that.)
 
+We ask that you credit FOMO.vote if you show this data. It can be tucked away in a credits page or in the footer. Additionally, we would appreciate it if you let us know ahead of time that you are planning on using this data, just so that we can say Hi!
+
+[Say Hi! >](hi@fomo.vote)
 
 
