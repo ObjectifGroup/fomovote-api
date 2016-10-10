@@ -38,6 +38,7 @@ When you send us binary reports, it is not used in the minute-based wait data.
 | Name        | Options           | Description  |
 |----|----|----|
 | report      | long, short | Choose one or the other |
+| poll_id      | *integer*       |   *Required* Which poll location this report is about. |
 | timestamp      | UNIX timestamp      |   *Optional* If not included, we'll use the request received time. |
 
 
@@ -52,6 +53,7 @@ A user, or your estimate of a user's, amount of time in minutes spent waiting in
 |----|----|----|
 | minutes      | *integer* | How long in minutes |
 | reportmethod      | self, estimated, measured | If you ask the user to enter the time based on their memory, indicate self. If you have some wizbang way of estimating it, indicate estimated. If you have the user start a timer or some other more accurate way of measuring, indicate measured. |
+| poll_id      | *integer*       |   *Required* Which poll location this report is about. |
 | timestamp      | UNIX timestamp      |   *Optional* If not included, we'll use the request received time. |
 
 ## Count of people in line
@@ -66,6 +68,7 @@ The ```reportmethod``` is not factored in heavily in this case, because we gener
 |----|----|----|
 | people      | *integer* | How many folks are in line |
 | reportmethod      | self, estimated, measured | We take self to mean a guess, estimated if you ask them for a range of people in line, and measured if you feel confident that the user actually spent the time counting. |
+| poll_id      | *integer*       |   *Required* Which poll location this report is about. |
 | timestamp      | UNIX timestamp      |   *Optional* If not included, we'll use the request received time. |
 
 ## Poll entrance/exit rate
@@ -79,6 +82,7 @@ The rate at which people enter or exit the polls. Our own implementation of this
 | count      | *integer* | How many people entered *or* exited the polling location |
 | period      | *integer* | Time period the count was conducted in seconds |
 | direction      | enter, exit | Whether the count was for people coming or going. *Recommended*: Use exit for user generated data sources. See note below. |
+| poll_id      | *integer*       |   *Required* Which poll location this report is about. |
 | timestamp      | UNIX timestamp      |   *Optional* If not included, we'll use the request received time. |
 
 **Note**: We recommend using exit as the count because it's not uncommon for someone to enter the polling station and have to be redirected to resolve an issue with their registration, identification, or similar. 
@@ -98,14 +102,14 @@ It's a simple JSON file that will look something similar to:
   "releaseDate": "2016-09-19T00:00:00.000Z",
   "locations": [
     {
-      "id": 12345,
+      "poll_id": 12345,
       "name": "Austin City Hall",
       "waitTime": 12,
       "fomoRating": 0.321,
       "confidence": 0.8
     },
     {
-      "id": 12343,
+      "poll_id": 12343,
       "name": "Carver Library",
       "waitTime": 75,
       "fomoRating": 0.987,
@@ -120,7 +124,7 @@ Please check the version number prior to parsing. We won't increment it (or chan
 ### Data returned
 | Name        | Value           | Description  |
 |----|----|----|
-| id      | *integer* | A unique ID of the polling location.  |
+| poll_id      | *integer* | A unique ID of the polling location.  |
 | name      | *string* | A friendly name of the polling station. |
 | waitTime      | *integer*     |   Amount of time people have spent waiting in line, based on reports. |
 | fomoRating      | *integer*     |   Our estimate of the wait at the current time, based on our predictions and estimates. 0 is no wait, 1 is a frustratingly long wait. See **Opinionated** for more info.  |
