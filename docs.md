@@ -22,7 +22,7 @@ We can improve our estimates if you are willing to engage your users to send in 
 
 You'll POST data to the appropriate endpoint. We ask that you include app_name as a POST variable with a static reference to your app. This just lets us know who's who, so if there's an issue we can tweet at you.
 
-If you get a 200 response, you're good to go. If you get anything else, we recommend waiting (asynchronously) 30 seconds or so and trying again.
+If you get a 200 response, you're good to go. If you get a 5xx response, we recommend waiting (asynchronously) 30 seconds or so and trying again. If you get a 4xx response, your POST is likely missing a parameter.
 
 ## Binary Report
 This is the simplest one, but surprisingly powerful based on our past efforts during the primaries and SXSW.
