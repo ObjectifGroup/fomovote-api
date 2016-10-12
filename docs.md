@@ -94,9 +94,7 @@ While the polls are open (even during early voting), every 5 minutes we will upd
 
 > http&#58;//v1.data-api.fomo.vote/lines.json
 
-Notice:
-
-> **No SSL**: This call does not support SSL. If you need it via SSL, you can terminate at https://s3.amazonaws.com/v1.data-api.fomo.vote
+**NOTICE: No SSL**: This call does not support SSL. If you need it via SSL, you can terminate at https://s3.amazonaws.com/v1.data-api.fomo.vote
 
 It's a simple JSON file that will look something similar to:
 ```
