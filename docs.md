@@ -106,14 +106,18 @@ It's a simple JSON file that will look something similar to:
       "name": "Austin City Hall",
       "waitTime": 12,
       "fomoRating": 0.321,
-      "confidence": 0.8
+      "confidence": 0.8,
+      "lat": 30.264553,
+      "lon": -97.747271
     },
     {
       "poll_id": 12343,
       "name": "Carver Library",
       "waitTime": 75,
       "fomoRating": 0.987,
-      "confidence": 0.2
+      "confidence": 0.2,
+      "lat": 30.264553,
+      "lon": -97.747271
     }
   ]
 }
@@ -129,6 +133,8 @@ Please check the version number prior to parsing. We won't increment it (or chan
 | waitTime      | *integer*     |   Amount of time people have spent waiting in line, based on reports. |
 | fomoRating      | *integer*     |   Our estimate of the wait at the current time, based on our predictions and estimates. 0 is no wait, 1 is a frustratingly long wait. See **Opinionated** for more info.  |
 | confidence      | *integer*      |  How confident we are on the accuracy of this report (including *waitTime* and *fomoRating*). This is largely impacted by the number of reports and time since the last report. 0 is not at all confident, 1 is extremely confident.  |
+| lat      | *integer* | Latitude of polling location |
+| lon      | *integer* | Longitude of polling location |
 
 This will be our first attempt at a confidence rating, so we're not sure how useful it is going to be for end users. Feel free to take it into account, but you should expect lots of 0.5 confidence ratings.
 
