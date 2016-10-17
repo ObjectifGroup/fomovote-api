@@ -92,9 +92,8 @@ The rate at which people enter or exit the polls. Our own implementation of this
 
 While the polls are open (even during early voting), every 5 minutes we will update the following endpoint that you can pull to get line data. If we're able to process data faster than every 5 minutes, we may elect to do so. 
 
-> http&#58;//v1.data-api.fomo.vote/lines.json
+> https&#58;//v1.data-api.fomo.vote/lines.json
 
-**NOTICE: No SSL**: This call does not support SSL. If you need it via SSL, you can terminate at https://s3.amazonaws.com/v1.data-api.fomo.vote
 
 It's a simple JSON file that will look something similar to:
 ```
